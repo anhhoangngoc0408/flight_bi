@@ -2,7 +2,9 @@
 
 import os
 import re
+import atexit
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Any
 
 import pandas as pd
@@ -10,58 +12,177 @@ import streamlit as st
 from dotenv import load_dotenv
 from sqlalchemy import URL, Engine, create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
+from streamlit.errors import StreamlitSecretNotFoundError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 load_dotenv(PROJECT_ROOT / ".env")
+_temporary_ca_paths: list[Path] = []
+
+
+def _secrets() -> dict[str, Any]:
+    """Return Streamlit secrets when configured; local runs may have none."""
+    try:
+        return dict(st.secrets)
+    except StreamlitSecretNotFoundError:
+        return {}
+
+
+def _database_profile() -> str:
+    """Select local or Aiven settings from environment or Streamlit secrets."""
+    environment_profile = os.getenv("MYSQL_PROFILE", "").strip().lower()
+    secrets = _secrets()
+    database_secrets = secrets.get("database", {})
+    secret_profile = str(database_secrets.get("profile", "local")).strip().lower()
+    profile = environment_profile or secret_profile
+    if profile not in {"local", "aiven"}:
+        raise DatabaseUnavailableError("MYSQL_PROFILE must be either 'local' or 'aiven'.")
+    return profile
+
+
+def _profile_value(profile: str, key: str, default: str = "") -> str:
+    """Read profile-specific environment/secrets without sharing passwords across profiles."""
+    environment_key = f"MYSQL_{profile.upper()}_{key.upper()}"
+    if environment_key in os.environ:
+        return os.environ[environment_key].strip()
+
+    secrets = _secrets()
+    mysql_secrets = secrets.get("mysql", {})
+    profile_secrets = mysql_secrets.get(profile, {})
+    secret_value = profile_secrets.get(key)
+    if secret_value is not None:
+        return str(secret_value).strip()
+
+    if profile == "local":
+        legacy_names = {
+            "host": "MYSQL_HOST",
+            "port": "MYSQL_PORT",
+            "database": "MYSQL_DB",
+            "user": "MYSQL_USER",
+            "password": "MYSQL_PASSWORD",
+            "ssl_ca": "MYSQL_SSL_CA",
+            "ssl_ca_pem": "MYSQL_SSL_CA_PEM",
+        }
+        legacy_name = legacy_names.get(key)
+        if legacy_name and legacy_name in os.environ:
+            return os.environ[legacy_name].strip()
+        local_secrets = mysql_secrets.get("local", {})
+        local_value = local_secrets.get(key)
+        if local_value is not None:
+            return str(local_value).strip()
+    return default
+
+
+def _aiven_ca_path() -> str:
+    """Resolve an Aiven CA file or materialize a PEM certificate from secrets."""
+    ca_path = _profile_value("aiven", "ssl_ca")
+    if ca_path:
+        if not Path(ca_path).is_file():
+            raise DatabaseUnavailableError("The configured Aiven SSL CA file does not exist.")
+        return ca_path
+
+    ca_pem = _profile_value("aiven", "ssl_ca_pem")
+    if ca_pem:
+        if "-----BEGIN CERTIFICATE-----" not in ca_pem:
+            raise DatabaseUnavailableError("MYSQL_AIVEN_SSL_CA_PEM must contain a PEM CA certificate.")
+        return _materialize_ca_certificate(ca_pem)
+
+    raise DatabaseUnavailableError(
+        "Aiven connections require the provider CA certificate for verified TLS. "
+        "Set MYSQL_AIVEN_SSL_CA to its local path or add ssl_ca_pem under [mysql.aiven] in Streamlit secrets."
+    )
+
+
+@st.cache_resource(show_spinner=False)
+def _materialize_ca_certificate(certificate_pem: str) -> str:
+    """Write a CA certificate once per process so pooled engines reuse its path."""
+    with NamedTemporaryFile(
+        mode="w", encoding="utf-8", suffix=".pem", prefix="aerovista-aiven-ca-", delete=False
+    ) as certificate_file:
+        certificate_file.write(certificate_pem)
+        path = Path(certificate_file.name)
+    _temporary_ca_paths.append(path)
+    return str(path)
+
+
+@atexit.register
+def _remove_temporary_ca_files() -> None:
+    """Remove temporary public CA files created from Streamlit secrets on shutdown."""
+    for path in _temporary_ca_paths:
+        path.unlink(missing_ok=True)
 
 
 class DatabaseUnavailableError(RuntimeError):
     """Raised when safe dashboard database access cannot be established."""
 
 
-def _database_url() -> URL:
-    """Build a URL without embedding credentials in source code."""
-    username = os.getenv("MYSQL_USER", "").strip()
-    password = os.getenv("MYSQL_PASSWORD", "")
+def _database_url(profile: str | None = None) -> URL:
+    """Build a URL from the selected local or cloud profile."""
+    selected_profile = profile or _database_profile()
+    defaults = {
+        "local": {"host": "127.0.0.1", "port": "3306", "database": "aviation_dw", "user": ""},
+        "aiven": {
+            "host": "mysql-nanh-flight.e.aivencloud.com",
+            "port": "26015",
+            "database": "defaultdb",
+            "user": "avnadmin",
+        },
+    }[selected_profile]
+    username = _profile_value(selected_profile, "user", defaults["user"])
+    password = _profile_value(selected_profile, "password")
     if not username or not password:
         raise DatabaseUnavailableError(
-            "Set MYSQL_USER and MYSQL_PASSWORD in the environment or local .env. "
-            "Use a dedicated MySQL account with SELECT-only privileges."
+            f"Database profile '{selected_profile}' is selected, but its username or password is missing. "
+            "Configure the selected profile in local .env or Streamlit Cloud secrets."
         )
 
     try:
-        port = int(os.getenv("MYSQL_PORT", "3306"))
+        port = int(_profile_value(selected_profile, "port", defaults["port"]))
     except ValueError as exc:
-        raise DatabaseUnavailableError("MYSQL_PORT must be an integer.") from exc
+        raise DatabaseUnavailableError(f"The {selected_profile} MySQL port must be an integer.") from exc
 
     return URL.create(
         "mysql+pymysql",
         username=username,
         password=password,
-        host=os.getenv("MYSQL_HOST", "127.0.0.1"),
+        host=_profile_value(selected_profile, "host", defaults["host"]),
         port=port,
-        database=os.getenv("MYSQL_DB", "aviation_dw"),
+        database=_profile_value(selected_profile, "database", defaults["database"]),
         query={"charset": "utf8mb4"},
     )
 
 
 @st.cache_resource(show_spinner=False)
-def get_engine() -> Engine:
-    """Create a pooled engine whose MySQL sessions default to read-only."""
+def _create_engine(database_url: URL, profile: str, ca_path: str | None) -> Engine:
+    """Create a pooled engine with read-only sessions and verified Aiven TLS."""
+    connect_args: dict[str, Any] = {
+        "connect_timeout": 5,
+        "init_command": "SET SESSION TRANSACTION READ ONLY",
+    }
+    if profile == "aiven":
+        # Aiven's SSL mode is REQUIRED; the CA and hostname are also verified.
+        connect_args.update(
+            ssl_ca=ca_path,
+            ssl_verify_cert=True,
+            ssl_verify_identity=True,
+        )
     try:
         return create_engine(
-            _database_url(),
+            database_url,
             pool_pre_ping=True,
             pool_recycle=1800,
             pool_size=5,
             max_overflow=5,
-            connect_args={
-                "connect_timeout": 5,
-                "init_command": "SET SESSION TRANSACTION READ ONLY",
-            },
+            connect_args=connect_args,
         )
     except (SQLAlchemyError, DatabaseUnavailableError) as exc:
         raise DatabaseUnavailableError(str(exc)) from exc
+
+
+def get_engine() -> Engine:
+    """Return the cached engine for the currently selected connection profile."""
+    profile = _database_profile()
+    ca_path = _aiven_ca_path() if profile == "aiven" else None
+    return _create_engine(_database_url(profile), profile, ca_path)
 
 
 def _require_select(statement: str) -> str:
@@ -84,12 +205,18 @@ def _require_select(statement: str) -> str:
 
 
 @st.cache_data(ttl=300, show_spinner=False)
-def query_df(statement: str, params: dict[str, Any] | None = None) -> pd.DataFrame:
-    """Execute a parameterized SELECT and return its result as a DataFrame."""
+def _query_df_cached(
+    statement: str,
+    params: dict[str, Any],
+    profile: str,
+    database_url: URL,
+    ca_path: str | None,
+) -> pd.DataFrame:
+    """Run a SELECT with profile included in the cache key."""
     query = _require_select(statement)
     try:
-        with get_engine().connect() as connection:
-            return pd.read_sql_query(text(query), connection, params=params or {})
+        with _create_engine(database_url, profile, ca_path).connect() as connection:
+            return pd.read_sql_query(text(query), connection, params=params)
     except SQLAlchemyError as exc:
         raise DatabaseUnavailableError(
             "The dashboard could not read the requested data from MySQL. "
@@ -97,14 +224,29 @@ def query_df(statement: str, params: dict[str, Any] | None = None) -> pd.DataFra
         ) from exc
 
 
+def query_df(statement: str, params: dict[str, Any] | None = None) -> pd.DataFrame:
+    """Execute a parameterized SELECT and return its result as a DataFrame."""
+    _require_select(statement)
+    profile = _database_profile()
+    ca_path = _aiven_ca_path() if profile == "aiven" else None
+    return _query_df_cached(statement, params or {}, profile, _database_url(profile), ca_path)
+
+
 @st.cache_data(ttl=60, show_spinner=False)
-def check_connection() -> tuple[str, str]:
+def _check_connection_cached(profile: str, database_url: URL, ca_path: str | None) -> tuple[str, str]:
     """Return the active database and server version using a read-only query."""
     try:
-        with get_engine().connect() as connection:
+        with _create_engine(database_url, profile, ca_path).connect() as connection:
             row = connection.execute(
                 text("SELECT DATABASE() AS database_name, VERSION() AS server_version")
             ).mappings().one()
             return str(row["database_name"]), str(row["server_version"])
     except (SQLAlchemyError, DatabaseUnavailableError) as exc:
         raise DatabaseUnavailableError(str(exc)) from exc
+
+
+def check_connection() -> tuple[str, str]:
+    """Check the active profile using a read-only query."""
+    profile = _database_profile()
+    ca_path = _aiven_ca_path() if profile == "aiven" else None
+    return _check_connection_cached(profile, _database_url(profile), ca_path)

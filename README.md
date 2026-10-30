@@ -1,6 +1,6 @@
 # AEROVISTA — Aviation Intelligence
 
-Streamlit BI dashboard for the aviation warehouse. The site reads the existing `aviation_dw` MySQL database and local ETL-generated answer/metadata CSVs. It does not run ETL or write to the warehouse.
+Streamlit BI dashboard for the aviation warehouse. It can read a local MySQL instance during development or an Aiven MySQL database when deployed to Streamlit Cloud. It does not run ETL or write to the warehouse.
 
 ## Requirements
 
@@ -24,12 +24,13 @@ Streamlit BI dashboard for the aviation warehouse. The site reads the existing `
 	Copy-Item .env.example .env
 	```
 
-3. Edit `.env` with local connection values. Do not commit `.env`.
+3. Edit `.env` with local connection values and set `MYSQL_PROFILE=local`. Do not commit `.env`.
 4. Ensure the MySQL account used by the dashboard is read-only. The app also starts sessions read-only and restricts application SQL to a single non-locking `SELECT` statement.
 5. Start with `streamlit run app.py` and open the local URL printed by Streamlit.
 
 Example environment variables:
 
+- `MYSQL_PROFILE` (`local` or `aiven`; defaults to `local`)
 - `MYSQL_HOST` (default `127.0.0.1`)
 - `MYSQL_PORT` (default `3306`)
 - `MYSQL_DB` (default `aviation_dw`)
@@ -37,6 +38,35 @@ Example environment variables:
 - `MYSQL_PASSWORD`
 
 The application intentionally refuses to use credentials embedded in source files or a default database password. If connection configuration is missing, pages show a database-unavailable message rather than substitute sample data.
+
+## Deploy to Streamlit Community Cloud with Aiven
+
+The app selects a connection profile at process startup. A local Streamlit process can connect to `127.0.0.1`; a hosted Streamlit Cloud process **cannot reach the MySQL server on your personal computer**. Select the Aiven profile for the hosted deployment and keep the local profile for development.
+
+1. In Streamlit Community Cloud, open the deployed app's **Settings → Secrets** and add profile configuration in TOML form. Enter the actual Aiven password directly in that protected Secrets editor; it is intentionally not present in the repository or this documentation.
+2. Add the Aiven CA certificate PEM from the Aiven console in `ssl_ca_pem` (or configure an accessible CA file path as `ssl_ca`). The connection requires TLS and verifies both the certificate chain and hostname.
+3. Select `profile = "aiven"` under `[database]`. The supplied endpoint defaults are configured in code: host `mysql-nanh-flight.e.aivencloud.com`, port `26015`, database `defaultdb`, and user `avnadmin`. The password and CA certificate still must be supplied through Secrets.
+4. Ensure the Aiven database contains the expected warehouse tables and views. The dashboard reads from the configured Aiven database (`defaultdb`) but does **not** create or copy schema/data. Migrate the warehouse through a separately approved data-transfer process before expecting dashboard queries to return data.
+5. For safer deployment, create/use a dedicated Aiven MySQL account with `SELECT` access only to the required tables/views, then set that username in Secrets instead of using administrative `avnadmin`.
+
+Example structure for the Streamlit Cloud Secrets editor (replace the password and CA placeholder with the actual values in that protected editor; do not save this example as a committed secrets file):
+
+```toml
+[database]
+profile = "aiven"
+
+[mysql.aiven]
+host = "mysql-nanh-flight.e.aivencloud.com"
+port = 26015
+database = "defaultdb"
+user = "avnadmin"
+password = "ENTER_THE_AIVEN_PASSWORD_IN_STREAMLIT_SECRETS"
+ssl_ca_pem = """-----BEGIN CERTIFICATE-----
+PASTE_THE_AIVEN_CA_CERTIFICATE_PEM_HERE
+-----END CERTIFICATE-----"""
+```
+
+If the profile is `local` (or omitted), existing `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_DB`, `MYSQL_USER`, and `MYSQL_PASSWORD` values in local `.env` continue to work. Aiven settings can alternatively be supplied via `MYSQL_AIVEN_HOST`, `MYSQL_AIVEN_PORT`, `MYSQL_AIVEN_DATABASE`, `MYSQL_AIVEN_USER`, `MYSQL_AIVEN_PASSWORD`, and `MYSQL_AIVEN_SSL_CA` / `MYSQL_AIVEN_SSL_CA_PEM`. Profile-specific settings are deliberately kept separate so local credentials are not reused for Aiven.
 
 ## Pages
 
@@ -60,5 +90,5 @@ The application intentionally refuses to use credentials embedded in source file
 
 - Do not use the ETL owner/root account for the dashboard. Create/use an account restricted to `SELECT` on the required objects.
 - Do not run `etl/etl_pipeline.py` from the web app. Existing ETL/schema scripts include destructive refresh/DDL behavior and remain separate operator workflows.
-- `.env` and Streamlit secrets are ignored by Git. `.env.example` contains placeholders only.
+- `.env` and local Streamlit secrets are ignored by Git. `.env.example` contains placeholders only. Configure hosted secrets in Streamlit Cloud settings, not in Git.
 - Analytics queries use bound values and aggregate in MySQL; fact-level data is not loaded wholesale into Pandas.
