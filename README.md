@@ -45,8 +45,8 @@ The app selects a connection profile at process startup. A local Streamlit proce
 
 1. In Streamlit Community Cloud, open the deployed app's **Settings → Secrets** and add profile configuration in TOML form. Enter the actual Aiven password directly in that protected Secrets editor; it is intentionally not present in the repository or this documentation.
 2. Add the Aiven CA certificate PEM from the Aiven console in `ssl_ca_pem` (or configure an accessible CA file path as `ssl_ca`). The connection requires TLS and verifies both the certificate chain and hostname.
-3. Select `profile = "aiven"` under `[database]`. The supplied endpoint defaults are configured in code: host `mysql-nanh-flight.e.aivencloud.com`, port `26015`, database `defaultdb`, and user `avnadmin`. The password and CA certificate still must be supplied through Secrets.
-4. Ensure the Aiven database contains the expected warehouse tables and views. The dashboard reads from the configured Aiven database (`defaultdb`) but does **not** create or copy schema/data. Migrate the warehouse through a separately approved data-transfer process before expecting dashboard queries to return data.
+3. Select `profile = "aiven"` under `[database]`. The endpoint defaults are host `mysql-nanh-flight.e.aivencloud.com`, port `26015`, database `defaultdb`, and user `avnadmin`; set overrides in `[mysql.aiven]` when needed. The password and CA certificate must be supplied through Secrets.
+4. Ensure the Aiven database contains the expected warehouse tables and real mart views. The dashboard does **not** create or copy schema/data. Migrate/repair the warehouse through a separately approved database-administration process before expecting dashboard analytics to work. A successful connection alone does not prove that the marts contain valid definitions/data; the app withholds analytics if a referenced mart is missing or is only a placeholder `SELECT 1` view.
 5. For safer deployment, create/use a dedicated Aiven MySQL account with `SELECT` access only to the required tables/views, then set that username in Secrets instead of using administrative `avnadmin`.
 
 Example structure for the Streamlit Cloud Secrets editor (replace the password and CA placeholder with the actual values in that protected editor; do not save this example as a committed secrets file):
@@ -58,7 +58,7 @@ profile = "aiven"
 [mysql.aiven]
 host = "mysql-nanh-flight.e.aivencloud.com"
 port = 26015
-database = "defaultdb"
+database = "aviation_dw"
 user = "avnadmin"
 password = "ENTER_THE_AIVEN_PASSWORD_IN_STREAMLIT_SECRETS"
 ssl_ca_pem = """-----BEGIN CERTIFICATE-----

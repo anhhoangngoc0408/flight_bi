@@ -42,13 +42,21 @@ def _database_profile() -> str:
 def _profile_value(profile: str, key: str, default: str = "") -> str:
     """Read profile-specific environment/secrets without sharing passwords across profiles."""
     environment_key = f"MYSQL_{profile.upper()}_{key.upper()}"
+    environment_aliases = {
+        "user": f"MYSQL_{profile.upper()}_USERNAME",
+    }
     if environment_key in os.environ:
         return os.environ[environment_key].strip()
+    alias_environment_key = environment_aliases.get(key)
+    if alias_environment_key and alias_environment_key in os.environ:
+        return os.environ[alias_environment_key].strip()
 
     secrets = _secrets()
     mysql_secrets = secrets.get("mysql", {})
     profile_secrets = mysql_secrets.get(profile, {})
     secret_value = profile_secrets.get(key)
+    if secret_value is None and key == "user":
+        secret_value = profile_secrets.get("username")
     if secret_value is not None:
         return str(secret_value).strip()
 
@@ -204,6 +212,64 @@ def _require_select(statement: str) -> str:
     return query
 
 
+@st.cache_data(ttl=60, show_spinner=False)
+def _read_mart_view_definitions(
+    database_url: URL,
+    profile: str,
+    ca_path: str | None,
+) -> dict[str, str]:
+    """Read view definitions so placeholder SELECT-1 marts cannot masquerade as real data."""
+    try:
+        with _create_engine(database_url, profile, ca_path).connect() as connection:
+            rows = connection.execute(
+                text(
+                    "SELECT TABLE_NAME AS table_name, VIEW_DEFINITION AS definition "
+                    "FROM information_schema.VIEWS WHERE TABLE_SCHEMA = DATABASE()"
+                )
+            ).mappings()
+            return {
+                str(row["table_name"]).lower(): str(row["definition"] or "")
+                for row in rows
+                if str(row["table_name"]).lower().startswith("mart_")
+            }
+    except SQLAlchemyError as exc:
+        raise DatabaseUnavailableError(
+            "Could not verify the warehouse mart definitions before querying them."
+        ) from exc
+
+
+def _validate_referenced_marts(
+    query: str,
+    database_url: URL,
+    profile: str,
+    ca_path: str | None,
+) -> None:
+    """Fail closed if a queried mart is missing or is only a SELECT-1 placeholder."""
+    referenced_marts = {
+        name.lower() for name in re.findall(r"\bmart_[A-Za-z0-9_]+\b", query, flags=re.IGNORECASE)
+    }
+    if not referenced_marts:
+        return
+
+    view_definitions = _read_mart_view_definitions(database_url, profile, ca_path)
+    missing = sorted(name for name in referenced_marts if name not in view_definitions)
+    placeholders = sorted(
+        name for name in referenced_marts
+        if name in view_definitions and re.search(r"\bFROM\b", view_definitions[name], re.IGNORECASE) is None
+    )
+    if missing or placeholders:
+        details = []
+        if missing:
+            details.append(f"missing mart views: {', '.join(missing)}")
+        if placeholders:
+            details.append(f"placeholder mart views (no source tables): {', '.join(placeholders)}")
+        raise DatabaseUnavailableError(
+            "The selected MySQL database is reachable, but its analytics marts are not ready "
+            f"({'; '.join(details)}). Dashboard metrics are withheld to avoid showing invalid data. "
+            "Provision the correct warehouse views using an approved database administration process."
+        )
+
+
 @st.cache_data(ttl=300, show_spinner=False)
 def _query_df_cached(
     statement: str,
@@ -214,6 +280,7 @@ def _query_df_cached(
 ) -> pd.DataFrame:
     """Run a SELECT with profile included in the cache key."""
     query = _require_select(statement)
+    _validate_referenced_marts(query, database_url, profile, ca_path)
     try:
         with _create_engine(database_url, profile, ca_path).connect() as connection:
             return pd.read_sql_query(text(query), connection, params=params)

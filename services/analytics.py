@@ -6,9 +6,9 @@ from services.database import query_df
 
 
 def get_available_years() -> list[int]:
-    """List years present in the carrier-level monthly mart."""
+    """List years present in the shared route-level monthly serving mart."""
     frame = query_df(
-        "SELECT DISTINCT year FROM mart_carrier_month ORDER BY year DESC"
+        "SELECT DISTINCT year FROM mart_route_month ORDER BY year DESC"
     )
     return [int(year) for year in frame["year"].dropna().tolist()]
 
@@ -27,7 +27,7 @@ def get_executive_summary(year: int) -> pd.DataFrame:
             SUM(seats) AS seats,
             SUM(turn_actual_sum_min) AS turn_actual_sum_min,
             SUM(turn_n) AS turn_n
-        FROM mart_carrier_month
+        FROM mart_route_month
         WHERE year = :year
         """,
         {"year": year},
@@ -40,15 +40,18 @@ def get_monthly_performance(year: int) -> pd.DataFrame:
         """
         SELECT
             month,
-            month_name,
+            DATE_FORMAT(
+                STR_TO_DATE(CONCAT(year, '-', LPAD(month, 2, '0'), '-01'), '%Y-%m-%d'),
+                '%M'
+            ) AS month_name,
             SUM(flights_scheduled) AS flights_scheduled,
             SUM(flights_completed) AS flights_completed,
             SUM(arr_del15_count) AS arr_del15_count,
             SUM(passengers) AS passengers,
             SUM(seats) AS seats
-        FROM mart_carrier_month
+        FROM mart_route_month
         WHERE year = :year
-        GROUP BY month, month_name
+        GROUP BY year, month
         ORDER BY month
         """,
         {"year": year},
@@ -475,7 +478,7 @@ def get_warehouse_row_counts() -> pd.DataFrame:
         "dim_route", "dim_aircraft", "dim_delay_cause", "dim_cancel_reason",
         "fact_ontime_route_month", "fact_capacity_route_month",
         "fact_turnaround_airport_daypart_month", "fact_fare_segment_quarter",
-        "fact_fare_market_quarter", "fact_fare_class_quarter", "mart_carrier_month",
+        "fact_fare_market_quarter", "fact_fare_class_quarter",
         "mart_route_month", "mart_carrier_quarter_rask", "mart_route_quarter_rask",
         "mart_delay_cause_month", "mart_turnaround_airport_month",
         "mart_turnaround_daypart_month", "mart_fare_market_quarter",
