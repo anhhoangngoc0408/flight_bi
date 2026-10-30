@@ -1,0 +1,135 @@
+airport_code,city,state,city_market_id,wac
+ABQ,"Albuquerque, NM",NM,30140,86
+ALB,"Albany, NY",NY,30257,22
+AMA,"Amarillo, TX",TX,30279,74
+ATL,"Atlanta, GA",GA,30397,34
+AUS,"Austin, TX",TX,30423,74
+AVP,"Scranton/Wilkes-Barre, PA",PA,30434,23
+BDL,"Hartford, CT",CT,30529,11
+BHM,"Birmingham, AL",AL,30599,51
+BLI,"Bellingham, WA",WA,30666,93
+BMI,"Bloomington/Normal, IL",IL,30685,41
+BNA,"Nashville, TN",TN,30693,54
+BOI,"Boise, ID",ID,30713,83
+BOS,"Boston, MA",MA,30721,13
+BQN,"Aguadilla, PR",PR,30732,3
+BTR,"Baton Rouge, LA",LA,30781,72
+BUF,"Buffalo, NY",NY,30792,22
+BUR,"Burbank, CA",CA,32575,91
+BWI,"Baltimore, MD",MD,30852,35
+BZN,"Bozeman, MT",MT,30849,84
+CHA,"Chattanooga, TN",TN,30980,54
+CHS,"Charleston, SC",SC,30994,37
+CLE,"Cleveland, OH",OH,30647,44
+CLT,"Charlotte, NC",NC,31057,36
+CMH,"Columbus, OH",OH,31066,44
+COS,"Colorado Springs, CO",CO,30189,82
+CRP,"Corpus Christi, TX",TX,31140,74
+CRW,"Charleston/Dunbar, WV",WV,31146,39
+CVG,"Cincinnati, OH",KY,33105,52
+CYS,"Cheyenne, WY",WY,31233,88
+DAL,"Dallas, TX",TX,30194,74
+DCA,"Washington, DC",VA,30852,38
+DEN,"Denver, CO",CO,30325,82
+DSM,"Des Moines, IA",IA,31423,61
+DTW,"Detroit, MI",MI,31295,43
+ECP,"Panama City, FL",FL,31481,33
+ELP,"El Paso, TX",TX,30615,74
+EUG,"Eugene, OR",OR,31603,92
+FAR,"Fargo, ND",ND,31637,66
+FAT,"Fresno, CA",CA,31638,91
+FAY,"Fayetteville, NC",NC,31641,36
+FLL,"Fort Lauderdale, FL",FL,32467,33
+FSD,"Sioux Falls, SD",SD,31775,67
+GEG,"Spokane, WA",WA,31884,93
+GRR,"Grand Rapids, MI",MI,31986,43
+GSO,"Greensboro/High Point, NC",NC,31995,36
+GSP,"Greer, SC",SC,31871,37
+HDN,"Hayden, CO",CO,34699,82
+HNL,"Honolulu, HI",HI,32134,2
+HOB,"Hobbs, NM",NM,32177,86
+HOU,"Houston, TX",TX,31453,74
+HRL,"Harlingen/San Benito, TX",TX,32206,74
+HSV,"Huntsville, AL",AL,30255,51
+IAD,"Washington, DC",VA,30852,38
+IAH,"Houston, TX",TX,31453,74
+ICT,"Wichita, KS",KS,30928,62
+IND,"Indianapolis, IN",IN,32337,42
+ISP,"Islip, NY",NY,31703,22
+ITO,"Hilo, HI",HI,32402,2
+JAN,"Jackson/Vicksburg, MS",MS,32448,53
+JAX,"Jacksonville, FL",FL,31136,33
+KOA,"Kona, HI",HI,32758,2
+LAS,"Las Vegas, NV",NV,32211,85
+LAX,"Los Angeles, CA",CA,32575,91
+LBB,"Lubbock, TX",TX,32896,74
+LGA,"New York, NY",NY,31703,22
+LGB,"Long Beach, CA",CA,32575,91
+LIH,"Lihue, HI",HI,32982,2
+LIT,"Little Rock, AR",AR,32600,71
+MAF,"Midland/Odessa, TX",TX,33158,74
+MCI,"Kansas City, MO",MO,33198,64
+MCO,"Orlando, FL",FL,31454,33
+MDW,"Chicago, IL",IL,30977,41
+MEM,"Memphis, TN",TN,33244,54
+MHT,"Manchester, NH",NH,30721,14
+MIA,"Miami, FL",FL,32467,33
+MKE,"Milwaukee, WI",WI,33342,45
+MSN,"Madison, WI",WI,33485,45
+MSP,"Minneapolis, MN",MN,31650,63
+MSY,"New Orleans, LA",LA,33495,72
+MTJ,"Montrose/Delta, CO",CO,33502,82
+MWA,"Marion/Herrin, IL",IL,33543,41
+MYR,"Myrtle Beach, SC",SC,31135,37
+OAK,"Oakland, CA",CA,32457,91
+OGG,"Kahului, HI",HI,33830,2
+OKC,"Oklahoma City, OK",OK,33851,73
+OMA,"Omaha, NE",NE,33316,65
+ONT,"Ontario, CA",CA,32575,91
+ORD,"Chicago, IL",IL,30977,41
+ORF,"Norfolk, VA",VA,33667,38
+PBI,"West Palm Beach/Palm Beach, FL",FL,34027,33
+PDX,"Portland, OR",OR,34057,92
+PGV,"Greenville, NC",NC,34092,36
+PHL,"Philadelphia, PA",PA,34100,23
+PHX,"Phoenix, AZ",AZ,30466,81
+PIH,"Pocatello, ID",ID,34113,83
+PIT,"Pittsburgh, PA",PA,30198,23
+PNS,"Pensacola, FL",FL,33728,33
+PSP,"Palm Springs, CA",CA,34262,91
+PUB,"Pueblo, CO",CO,34288,82
+PVD,"Providence, RI",RI,30721,15
+PVU,"Provo, UT",UT,34314,87
+PWM,"Portland, ME",ME,34321,12
+RDG,"Reading, PA",PA,34488,23
+RDM,"Bend/Redmond, OR",OR,34489,92
+RDU,"Raleigh/Durham, NC",NC,34492,36
+RIC,"Richmond, VA",VA,34524,38
+RNO,"Reno, NV",NV,34570,85
+ROC,"Rochester, NY",NY,34576,22
+RSW,"Fort Myers, FL",FL,31714,33
+SAN,"San Diego, CA",CA,33570,91
+SAT,"San Antonio, TX",TX,33214,74
+SAV,"Savannah, GA",GA,34685,34
+SBA,"Santa Barbara, CA",CA,34689,91
+SDF,"Louisville, KY",KY,33044,52
+SEA,"Seattle, WA",WA,30559,93
+SFB,"Sanford, FL",FL,34761,33
+SFO,"San Francisco, CA",CA,32457,91
+SGF,"Springfield, MO",MO,34783,64
+SHV,"Shreveport, LA",LA,30476,72
+SJC,"San Jose, CA",CA,32457,91
+SJU,"San Juan, PR",PR,34819,3
+SLC,"Salt Lake City, UT",UT,34614,87
+SMF,"Sacramento, CA",CA,33192,91
+SNA,"Santa Ana, CA",CA,32575,91
+SRQ,"Sarasota/Bradenton, FL",FL,34986,33
+STL,"St. Louis, MO",MO,31123,64
+SYR,"Syracuse, NY",NY,35096,22
+TLH,"Tallahassee, FL",FL,35249,33
+TPA,"Tampa, FL",FL,33195,33
+TUL,"Tulsa, OK",OK,34653,73
+TUS,"Tucson, AZ",AZ,30436,81
+VPS,"Valparaiso, FL",FL,31504,33
+XNA,"Fayetteville, AR",AR,31834,71
+YNG,"Youngstown/Warren, OH",OH,36133,44

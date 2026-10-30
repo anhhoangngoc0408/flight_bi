@@ -1,0 +1,2 @@
+carrier_code,carrier_name,business_model,is_regional,in_ontime,in_t100,in_db1b_operating,in_db1b_ticketed
+WN,Southwest Airlines,Low-cost,False,True,True,True,True

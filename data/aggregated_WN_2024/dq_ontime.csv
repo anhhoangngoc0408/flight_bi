@@ -1,0 +1,193 @@
+file,rule,rows,rows_after,action
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,TỔNG: dòng thô -> dòng sạch,115389,115389.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,khác hãng WN (ngoài phạm vi 1 hãng),431882,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,chuyến quay lại cổng (FirstDepTime có giá trị),472,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,giá trị giờ = 2400 (đổi thành 00:00),34,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_1.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",86006,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,TỔNG: dòng thô -> dòng sạch,119251,119251.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,khác hãng WN (ngoài phạm vi 1 hãng),496246,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,chuyến quay lại cổng (FirstDepTime có giá trị),351,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,giá trị giờ = 2400 (đổi thành 00:00),73,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_10.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",92644,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,TỔNG: dòng thô -> dòng sạch,112591,112591.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,khác hãng WN (ngoài phạm vi 1 hãng),462813,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,chuyến quay lại cổng (FirstDepTime có giá trị),346,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,giá trị giờ = 2400 (đổi thành 00:00),51,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_11.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",87903,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,TỔNG: dòng thô -> dòng sạch,116276,116276.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,khác hãng WN (ngoài phạm vi 1 hãng),474305,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,chuyến quay lại cổng (FirstDepTime có giá trị),410,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,giá trị giờ = 2400 (đổi thành 00:00),66,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_12.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",90088,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,TỔNG: dòng thô -> dòng sạch,105207,105207.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,khác hãng WN (ngoài phạm vi 1 hãng),414014,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,chuyến quay lại cổng (FirstDepTime có giá trị),350,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,giá trị giờ = 2400 (đổi thành 00:00),21,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_2.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",80884,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,TỔNG: dòng thô -> dòng sạch,125272,125272.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,khác hãng WN (ngoài phạm vi 1 hãng),466495,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,chuyến quay lại cổng (FirstDepTime có giá trị),471,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,giá trị giờ = 2400 (đổi thành 00:00),96,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_3.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",97026,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,TỔNG: dòng thô -> dòng sạch,120579,120579.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,khác hãng WN (ngoài phạm vi 1 hãng),461606,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,chuyến quay lại cổng (FirstDepTime có giá trị),424,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,giá trị giờ = 2400 (đổi thành 00:00),84,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_4.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",93996,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,TỔNG: dòng thô -> dòng sạch,122496,122496.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,khác hãng WN (ngoài phạm vi 1 hãng),487247,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,chuyến quay lại cổng (FirstDepTime có giá trị),516,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,giá trị giờ = 2400 (đổi thành 00:00),63,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_5.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",94019,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,TỔNG: dòng thô -> dòng sạch,123817,123817.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,khác hãng WN (ngoài phạm vi 1 hãng),487315,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,chuyến quay lại cổng (FirstDepTime có giá trị),514,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,giá trị giờ = 2400 (đổi thành 00:00),118,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_6.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",96469,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,TỔNG: dòng thô -> dòng sạch,127642,127642.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,khác hãng WN (ngoài phạm vi 1 hãng),506971,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,chuyến quay lại cổng (FirstDepTime có giá trị),602,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,giá trị giờ = 2400 (đổi thành 00:00),125,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_7.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",98562,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,TỔNG: dòng thô -> dòng sạch,118338,118338.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,khác hãng WN (ngoài phạm vi 1 hãng),500687,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,chuyến quay lại cổng (FirstDepTime có giá trị),516,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,giá trị giờ = 2400 (đổi thành 00:00),55,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_8.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",91162,,tính mới
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,TỔNG: dòng thô -> dòng sạch,112561,112561.0,
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,khác hãng WN (ngoài phạm vi 1 hãng),470061,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,ngày không hợp lệ/ngoài năm,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,origin == dest hoặc thiếu sân bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,distance <= 0 / thiếu,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,trùng khóa chuyến bay,0,,loại
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,vừa hủy vừa chuyển hướng,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,chuyến hoàn thành thiếu arr_delay,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,arr_del15 không khớp arr_delay>=15,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,tổng 5 nguyên nhân != arr_delay (chuyến có báo cáo nguyên nhân),0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,chuyến trễ>=15 nhưng KHÔNG có nguyên nhân,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,chuyến hủy nhưng thiếu mã lý do,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,chuyến hoàn thành thiếu số đuôi (Tail_Number) -> không tính quay đầu,0,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,chuyến quay lại cổng (FirstDepTime có giá trị),335,,ghi nhận
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,giá trị giờ = 2400 (đổi thành 00:00),29,,chuẩn hóa
+On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2024_9.csv,"lượt quay đầu máy bay hợp lệ (cùng số đuôi, cùng sân bay)",87523,,tính mới

@@ -1,0 +1,21 @@
+rule,rows,rows_after,action
+TỔNG: dòng thô -> sau khử trùng/lọc năm,648306,54297.0,
+db28seg.dd.wac.202302.202401.asc: khác hãng WN (ngoài phạm vi 1 hãng),370140,,loại
+db28seg.dd.wac.202303.202402.asc: khác hãng WN (ngoài phạm vi 1 hãng),369786,,loại
+db28seg.dd.wac.202304.202403.asc: khác hãng WN (ngoài phạm vi 1 hãng),369315,,loại
+db28seg.dd.wac.202305.202404.asc: khác hãng WN (ngoài phạm vi 1 hãng),369730,,loại
+db28seg.dd.wac.202306.202405.asc: khác hãng WN (ngoài phạm vi 1 hãng),372909,,loại
+db28seg.dd.wac.202307.202406.asc: khác hãng WN (ngoài phạm vi 1 hãng),370008,,loại
+db28seg.dd.wac.202308.202407.asc: khác hãng WN (ngoài phạm vi 1 hãng),371918,,loại
+db28seg.dd.wac.202309.202408.asc: khác hãng WN (ngoài phạm vi 1 hãng),377222,,loại
+db28seg.dd.wac.202310.202409.asc: khác hãng WN (ngoài phạm vi 1 hãng),379031,,loại
+db28seg.dd.wac.202311.202410.asc: khác hãng WN (ngoài phạm vi 1 hãng),379358,,loại
+db28seg.dd.wac.202312.202411.asc: khác hãng WN (ngoài phạm vi 1 hãng),380134,,loại
+db28seg.dd.wac.202401.202412.asc: khác hãng WN (ngoài phạm vi 1 hãng),383018,,loại
+bản ghi trùng hoàn toàn (file chồng kỳ),545363,,loại
+giá trị số không đọc được (NaN sau ép kiểu),0,,loại
+"ngoài năm 2024 (giữ ở file lịch sử, không dùng)",48646,,tách
+flag_no_departures_but_pax (chỉ service_class F),2015,,gắn cờ
+flag_pax_gt_seats (chỉ service_class F),0,,gắn cờ
+flag_zero_seats_with_pax (chỉ service_class F),0,,gắn cờ
+flag_perf_gt_sched (chỉ service_class F),7593,,gắn cờ

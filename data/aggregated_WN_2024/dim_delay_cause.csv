@@ -1,0 +1,6 @@
+cause_code,column_name,description_vi
+Carrier,delay_carrier_min,"Do hãng: tổ bay, bảo dưỡng, nạp nhiên liệu/chất tải/vệ sinh, hành lý..."
+Weather,delay_weather_min,Thời tiết nghiêm trọng làm trễ chuyến (đã xảy ra)
+NAS,delay_nas_min,"Hệ thống không phận quốc gia: mật độ, kiểm soát không lưu, thời tiết nhẹ ảnh hưởng luồng bay"
+Security,delay_security_min,"An ninh: sơ tán, soi chiếu hỏng, hàng chờ an ninh dài"
+LateAircraft,delay_late_aircraft_min,Máy bay chặng trước đến muộn nên chặng sau trễ (hiệu ứng dây chuyền)

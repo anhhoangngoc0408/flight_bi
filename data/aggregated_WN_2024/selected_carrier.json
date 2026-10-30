@@ -1,0 +1,18 @@
+{
+ "carrier": "WN",
+ "ontime_rows_raw": 1419419,
+ "rule": "hãng có nhiều bản ghi On-Time nhất",
+ "year": 2024,
+ "top_carriers": {
+  "WN": 1419419,
+  "DL": 1009174,
+  "AA": 984306,
+  "UA": 760451,
+  "OO": 744658,
+  "YX": 301465,
+  "MQ": 279955,
+  "NK": 261103,
+  "AS": 245819,
+  "B6": 240282
+ }
+}

@@ -1,0 +1,37 @@
+file,rule,rows,rows_after,action
+db1b.public.202403.asc,TỔNG dòng thô (mọi hãng),4533056,,
+db1b.public.202403.asc,dòng có chứa mã hãng WN (tiền lọc),966621,,giữ để kiểm tra
+db1b.public.202403.asc,TỔNG: qua kiểm tra chất lượng,966621,966474.0,
+db1b.public.202403.asc,giữ hành trình có chặng do WN khai thác / báo cáo,966474,966474.0,giữ
+db1b.public.202403.asc,fare <= 0,0,,loại
+db1b.public.202403.asc,cờ tín nhiệm * (giá bất hợp lý),147,,loại
+db1b.public.202403.asc,fare >= 50000,0,,loại
+db1b.public.202403.asc,cấu trúc dòng lỗi/thiếu trường,0,,loại
+db1b.public.202403.asc,ngoài năm 2024,0,,loại
+db1b.public.202406.asc,TỔNG dòng thô (mọi hãng),5231861,,
+db1b.public.202406.asc,dòng có chứa mã hãng WN (tiền lọc),1133346,,giữ để kiểm tra
+db1b.public.202406.asc,TỔNG: qua kiểm tra chất lượng,1133346,1133187.0,
+db1b.public.202406.asc,giữ hành trình có chặng do WN khai thác / báo cáo,1133187,1133187.0,giữ
+db1b.public.202406.asc,fare <= 0,1,,loại
+db1b.public.202406.asc,cờ tín nhiệm * (giá bất hợp lý),158,,loại
+db1b.public.202406.asc,fare >= 50000,0,,loại
+db1b.public.202406.asc,cấu trúc dòng lỗi/thiếu trường,0,,loại
+db1b.public.202406.asc,ngoài năm 2024,0,,loại
+db1b.public.202409.asc,TỔNG dòng thô (mọi hãng),5114707,,
+db1b.public.202409.asc,dòng có chứa mã hãng WN (tiền lọc),1090643,,giữ để kiểm tra
+db1b.public.202409.asc,TỔNG: qua kiểm tra chất lượng,1090643,1090461.0,
+db1b.public.202409.asc,giữ hành trình có chặng do WN khai thác / báo cáo,1090461,1090461.0,giữ
+db1b.public.202409.asc,fare <= 0,15,,loại
+db1b.public.202409.asc,cờ tín nhiệm * (giá bất hợp lý),167,,loại
+db1b.public.202409.asc,fare >= 50000,0,,loại
+db1b.public.202409.asc,cấu trúc dòng lỗi/thiếu trường,0,,loại
+db1b.public.202409.asc,ngoài năm 2024,0,,loại
+db1b.public.202412.asc,TỔNG dòng thô (mọi hãng),5186452,,
+db1b.public.202412.asc,dòng có chứa mã hãng WN (tiền lọc),1078506,,giữ để kiểm tra
+db1b.public.202412.asc,TỔNG: qua kiểm tra chất lượng,1078506,1078193.0,
+db1b.public.202412.asc,giữ hành trình có chặng do WN khai thác / báo cáo,1078193,1078193.0,giữ
+db1b.public.202412.asc,fare <= 0,9,,loại
+db1b.public.202412.asc,cờ tín nhiệm * (giá bất hợp lý),304,,loại
+db1b.public.202412.asc,fare >= 50000,0,,loại
+db1b.public.202412.asc,cấu trúc dòng lỗi/thiếu trường,0,,loại
+db1b.public.202412.asc,ngoài năm 2024,0,,loại

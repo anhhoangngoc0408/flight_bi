@@ -1,0 +1,15 @@
+# Local credentials and Streamlit secrets
+.env
+.streamlit/secrets.toml
+
+# Python and test artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Local editor and operating-system artifacts
+.DS_Store
+Thumbs.db

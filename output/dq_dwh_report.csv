@@ -1,0 +1,130 @@
+﻿check_group,check_name,status,metric_value,detail
+ROW_COUNT,fact_ontime_route_month = agg_ontime_carrier_route_month.csv,PASS,db=19538 csv=19538,
+MEASURE_SUM,fact_ontime_route_month.flights_scheduled,PASS,db=1419419.00 csv=1419419.00,
+MEASURE_SUM,fact_ontime_route_month.flights_cancelled,PASS,db=11772.00 csv=11772.00,
+MEASURE_SUM,fact_ontime_route_month.flights_diverted,PASS,db=3050.00 csv=3050.00,
+MEASURE_SUM,fact_ontime_route_month.flights_completed,PASS,db=1404597.00 csv=1404597.00,
+MEASURE_SUM,fact_ontime_route_month.dep_del15_count,PASS,db=329102.00 csv=329102.00,
+MEASURE_SUM,fact_ontime_route_month.arr_del15_count,PASS,db=289414.00 csv=289414.00,
+MEASURE_SUM,fact_ontime_route_month.arr_delay_pos_min,PASS,db=17219907.00 csv=17219907.00,
+MEASURE_SUM,fact_ontime_route_month.dep_delay_pos_min,PASS,db=19094437.00 csv=19094437.00,
+MEASURE_SUM,fact_ontime_route_month.delay_carrier_min,PASS,db=4341650.00 csv=4341650.00,
+MEASURE_SUM,fact_ontime_route_month.delay_weather_min,PASS,db=378603.00 csv=378603.00,
+MEASURE_SUM,fact_ontime_route_month.delay_nas_min,PASS,db=2763087.00 csv=2763087.00,
+MEASURE_SUM,fact_ontime_route_month.delay_security_min,PASS,db=42309.00 csv=42309.00,
+MEASURE_SUM,fact_ontime_route_month.delay_late_aircraft_min,PASS,db=8089819.00 csv=8089819.00,
+MEASURE_SUM,fact_ontime_route_month.cancel_carrier,PASS,db=2184.00 csv=2184.00,
+MEASURE_SUM,fact_ontime_route_month.cancel_weather,PASS,db=8402.00 csv=8402.00,
+MEASURE_SUM,fact_ontime_route_month.cancel_nas,PASS,db=1186.00 csv=1186.00,
+MEASURE_SUM,fact_ontime_route_month.cancel_security,PASS,db=0.00 csv=0.00,
+MEASURE_SUM,fact_ontime_route_month.taxi_out_sum_min,PASS,db=19392016.00 csv=19392016.00,
+MEASURE_SUM,fact_ontime_route_month.taxi_in_sum_min,PASS,db=8091962.00 csv=8091962.00,
+MEASURE_SUM,fact_ontime_route_month.crs_elapsed_sum_min,PASS,db=185618025.00 csv=185618025.00,
+MEASURE_SUM,fact_ontime_route_month.actual_elapsed_sum_min,PASS,db=174320063.00 csv=174320063.00,
+MEASURE_SUM,fact_ontime_route_month.turn_n,PASS,db=1096282.00 csv=1096282.00,
+MEASURE_SUM,fact_ontime_route_month.turn_over_sched_n,PASS,db=858815.00 csv=858815.00,
+MEASURE_SUM,fact_ontime_route_month.turn_sched_sum_min,PASS,db=53225735.00 csv=53225735.00,
+MEASURE_SUM,fact_ontime_route_month.turn_actual_sum_min,PASS,db=64317577.00 csv=64317577.00,
+MEASURE_SUM,fact_ontime_route_month.gate_return_n,PASS,db=5307.00 csv=5307.00,
+MEASURE_SUM,fact_ontime_route_month.total_add_gtime_sum_min,PASS,db=158361.00 csv=158361.00,
+FK_ORPHAN,fact_ontime_route_month: dòng mồ côi khóa ngoại,PASS,0 dòng mồ côi,
+GRAIN_DUP,fact_ontime_route_month: grain là duy nhất,PASS,0 dòng trùng grain,
+ROW_COUNT,fact_capacity_route_month = agg_t100_carrier_route_month.csv,PASS,db=19538 csv=19538,
+MEASURE_SUM,fact_capacity_route_month.departures_scheduled,PASS,db=1408751.00 csv=1408751.00,
+MEASURE_SUM,fact_capacity_route_month.departures_performed,PASS,db=1419418.00 csv=1419418.00,
+MEASURE_SUM,fact_capacity_route_month.seats,PASS,db=224590721.00 csv=224590721.00,
+MEASURE_SUM,fact_capacity_route_month.passengers,PASS,db=172882875.00 csv=172882875.00,
+MEASURE_SUM,fact_capacity_route_month.freight_lbs,PASS,db=256203248.00 csv=256203248.00,
+MEASURE_SUM,fact_capacity_route_month.mail_lbs,PASS,db=0.00 csv=0.00,
+MEASURE_SUM,fact_capacity_route_month.asm,PASS,db=171401678554.00 csv=171401678554.00,
+MEASURE_SUM,fact_capacity_route_month.rpm,PASS,db=137470664885.00 csv=137470664885.00,
+MEASURE_SUM,fact_capacity_route_month.ramp_to_ramp_min,PASS,db=174902119.00 csv=174902119.00,
+MEASURE_SUM,fact_capacity_route_month.air_time_min,PASS,db=147387593.00 csv=147387593.00,
+MEASURE_SUM,fact_capacity_route_month.n_aircraft_types,PASS,db=52127.00 csv=52127.00,
+FK_ORPHAN,fact_capacity_route_month: dòng mồ côi khóa ngoại,PASS,0 dòng mồ côi,
+GRAIN_DUP,fact_capacity_route_month: grain là duy nhất,PASS,0 dòng trùng grain,
+ROW_COUNT,fact_turnaround_airport_daypart_month = agg_turnaround_airport_daypart_month.csv,PASS,db=3863 csv=3863,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.turn_n,PASS,db=1096282.00 csv=1096282.00,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.turn_sched_sum_min,PASS,db=53225735.00 csv=53225735.00,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.turn_actual_sum_min,PASS,db=64317577.00 csv=64317577.00,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.turn_excess_sum_min,PASS,db=11091842.00 csv=11091842.00,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.turn_over_sched_n,PASS,db=858815.00 csv=858815.00,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.turn_after_late_inbound_n,PASS,db=386334.00 csv=386334.00,
+MEASURE_SUM,fact_turnaround_airport_daypart_month.dep_delay_sum_min,PASS,db=15409348.00 csv=15409348.00,
+FK_ORPHAN,fact_turnaround_airport_daypart_month: dòng mồ côi khóa ngoại,PASS,0 dòng mồ côi,
+GRAIN_DUP,fact_turnaround_airport_daypart_month: grain là duy nhất,PASS,0 dòng trùng grain,
+ROW_COUNT,fact_fare_segment_quarter = agg_db1b_segment_quarter.csv,PASS,db=12335 csv=12335,
+MEASURE_SUM,fact_fare_segment_quarter.pax_sample,PASS,db=16821316.00 csv=16821316.00,
+MEASURE_SUM,fact_fare_segment_quarter.seg_revenue_sample,PASS,db=2348423447.13 csv=2348423447.13,
+MEASURE_SUM,fact_fare_segment_quarter.pax_miles_sample,PASS,db=13526750968.00 csv=13526750968.00,
+MEASURE_SUM,fact_fare_segment_quarter.pax_est,PASS,db=168213160.00 csv=168213160.00,
+MEASURE_SUM,fact_fare_segment_quarter.revenue_est_usd,PASS,db=23484234471.69 csv=23484234471.28,
+FK_ORPHAN,fact_fare_segment_quarter: dòng mồ côi khóa ngoại,PASS,0 dòng mồ côi,
+GRAIN_DUP,fact_fare_segment_quarter: grain là duy nhất,PASS,0 dòng trùng grain,
+ROW_COUNT,fact_fare_market_quarter = agg_db1b_market_quarter.csv,PASS,db=63087 csv=63087,
+MEASURE_SUM,fact_fare_market_quarter.itineraries,PASS,db=4268315.00 csv=4268315.00,
+MEASURE_SUM,fact_fare_market_quarter.pax_sample,PASS,db=8416083.00 csv=8416083.00,
+MEASURE_SUM,fact_fare_market_quarter.rev_sample,PASS,db=2349379067.00 csv=2349379067.00,
+MEASURE_SUM,fact_fare_market_quarter.pax_est,PASS,db=84160830.00 csv=84160830.00,
+FK_ORPHAN,fact_fare_market_quarter: dòng mồ côi khóa ngoại,PASS,0 dòng mồ côi,
+GRAIN_DUP,fact_fare_market_quarter: grain là duy nhất,PASS,0 dòng trùng grain,
+ROW_COUNT,fact_fare_class_quarter = agg_db1b_fareclass_quarter.csv,PASS,db=8 csv=8,
+MEASURE_SUM,fact_fare_class_quarter.pax_sample,PASS,db=16821316.00 csv=16821316.00,
+MEASURE_SUM,fact_fare_class_quarter.seg_revenue_sample,PASS,db=2348423447.13 csv=2348423447.13,
+FK_ORPHAN,fact_fare_class_quarter: dòng mồ côi khóa ngoại,PASS,0 dòng mồ côi,
+GRAIN_DUP,fact_fare_class_quarter: grain là duy nhất,PASS,0 dòng trùng grain,
+CROSS_SOURCE,12 tháng: tỉ lệ On-Time/T-100 khớp dq_cross_source.csv,PASS,min=0.9691,
+CROSS_SOURCE,mọi tháng tỉ lệ ≥ 0.95,PASS,min=0.9691,T-100.departures_performed ≈ On-Time chuyến đã cất cánh
+MART_PARITY,mart_carrier_month: số dòng,PASS,db=12 csv=12,
+MART_PARITY,mart_carrier_month: trùng khớp khóa join,PASS,12 dòng,db=12 csv=12
+MART_PARITY,mart_carrier_month: KPI cancel_rate,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI divert_rate,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI arr_del15_rate,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI dep_del15_rate,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI delay_cause_total_min,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI delay_carrier_share,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI delay_weather_share,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI delay_nas_share,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI delay_security_share,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI delay_late_aircraft_share,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI avg_arr_delay_per_completed_min,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI load_factor,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI avg_turn_sched_min,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI avg_turn_actual_min,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI turn_over_sched_rate,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_carrier_month: KPI gate_return_rate,PASS,max_diff≤tol,so trên 12 dòng
+MART_PARITY,mart_route_month: số dòng,PASS,db=19538 csv=19538,
+MART_PARITY,mart_route_month: trùng khớp khóa join,PASS,19538 dòng,db=19538 csv=19538
+MART_PARITY,mart_route_month: KPI cancel_rate,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI divert_rate,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI arr_del15_rate,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI dep_del15_rate,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI delay_cause_total_min,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI delay_carrier_share,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI delay_weather_share,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI delay_nas_share,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI delay_security_share,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI delay_late_aircraft_share,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI avg_arr_delay_per_completed_min,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI load_factor,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI avg_turn_sched_min,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI avg_turn_actual_min,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI turn_over_sched_rate,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_route_month: KPI gate_return_rate,PASS,max_diff≤tol,so trên 19538 dòng
+MART_PARITY,mart_carrier_quarter_rask: số dòng,PASS,db=4 csv=4,
+MART_PARITY,mart_carrier_quarter_rask: trùng khớp khóa join,PASS,4 dòng,db=4 csv=4
+MART_PARITY,mart_carrier_quarter_rask: KPI load_factor,PASS,max_diff≤tol,so trên 4 dòng
+MART_PARITY,mart_carrier_quarter_rask: KPI rask_cents,PASS,max_diff≤tol,so trên 4 dòng
+MART_PARITY,mart_carrier_quarter_rask: KPI yield_cents,PASS,max_diff≤tol,so trên 4 dòng
+MART_PARITY,mart_carrier_quarter_rask: KPI db1b_pax_to_t100_pax,PASS,max_diff≤tol,so trên 4 dòng
+MART_PARITY,mart_carrier_quarter_rask: KPI complete_quarter,PASS,max_diff≤tol,so trên 4 dòng
+MART_PARITY,mart_route_quarter_rask: số dòng,PASS,db=12336 csv=12336,
+MART_PARITY,mart_route_quarter_rask: trùng khớp khóa join,PASS,12336 dòng,db=12336 csv=12336
+MART_PARITY,mart_route_quarter_rask: KPI load_factor,PASS,max_diff≤tol,so trên 12336 dòng
+MART_PARITY,mart_route_quarter_rask: KPI rask_cents,PASS,max_diff≤tol,so trên 12336 dòng
+MART_PARITY,mart_route_quarter_rask: KPI yield_cents,PASS,max_diff≤tol,so trên 12336 dòng
+MART_PARITY,mart_route_quarter_rask: KPI db1b_pax_to_t100_pax,PASS,max_diff≤tol,so trên 12336 dòng
+MART_PARITY,mart_route_quarter_rask: KPI complete_quarter,PASS,max_diff≤tol,so trên 12336 dòng
+ANSWER,answer_delay_cause_share: tổng phút trễ theo nhóm,PASS,5/5 nhóm khớp,
+ANSWER,answer_delay_cause_share: tỷ trọng % (làm tròn 1 số thập phân),PASS,chênh lệch ≤ 0.05 điểm %,LateAircraft:51.8%; Carrier:27.8%; NAS:17.7%; Weather:2.4%; Security:0.3%
+ANSWER,answer_turnaround_by_daypart: 4 khung giờ khớp,PASS,chênh lệch ≤ 0.05,tất cả khớp
